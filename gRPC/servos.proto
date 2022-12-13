@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+
+message UpdateServos{ // change this to ServoValues
+    repeated int32 servo_values = 1;
+}
+
+message AckUpdateServos{ //change this to AckServoUpdate
+    bool ack = 1; //change this to int32 with 0 = success
+}
+
+service SendUpdateSerovs{ // change this to ServoUpdate
+    rpc Start (UpdateServos) returns (AckUpdateServos){}
+}
