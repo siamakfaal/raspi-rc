@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+message Image{
+    repeated int32 data = 1;
+}
+
+message ImageResponse{
+    uint32 count = 1;
+}
+
+service Camera{
+    rpc FeedCamera(stream Image) returns (ImageResponse) {}
+}
